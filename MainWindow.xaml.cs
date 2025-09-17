@@ -32,6 +32,8 @@ namespace listak_gyakorlas
 
             lbBal.ItemsSource = balLista;
             lbJobb.ItemsSource = jobbLista;
+
+            FrissitGombok();
         }
 
         private void cmbSzinek_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,6 +90,8 @@ namespace listak_gyakorlas
 
             lbBal.Items.Refresh();
             lbJobb.Items.Refresh();
+
+            FrissitGombok();
         }
 
         private void btnBalra_Click(object sender, RoutedEventArgs e)
@@ -101,6 +105,16 @@ namespace listak_gyakorlas
 
             lbBal.Items.Refresh();
             lbJobb.Items.Refresh();
+
+            FrissitGombok();
+            
+        }
+
+        private void FrissitGombok()
+        {
+            btnBalra.IsEnabled = jobbLista.Count > 0;
+            btnJobbra.IsEnabled = balLista.Count > 0;
+
         }
     }
 }
